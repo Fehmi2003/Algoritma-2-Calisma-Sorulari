@@ -1,35 +1,69 @@
-﻿#include<iostream>
+﻿#include <string>
+#include <iostream>
+#include <stdlib.h>
 using namespace std;
-int g = 5;
-class Test {
-	int x, y;
-public:
-	Test(int _x, int _y) :x(_x), y(_y) { g += 3; }
-	Test(int _x);
-	~Test();
-	int f(int&, int = 8);
 
+class Oyuncu {
+	string rumuz;
+	int puan;
+public:
+	Oyuncu(string _rumuz, int _puan) :
+		rumuz(_rumuz),
+		puan(_puan) {}
+	Oyuncu(string _rumuz);
+	Oyuncu() {};
+	int puanAl();
+	void durumYazdir();
 };
-Test::Test(int _x) {
-	x = _x;
-	y = _x;
+
+Oyuncu::Oyuncu(string _rumuz)
+{
+	rumuz = _rumuz;
 }
-Test::~Test() {
-	cout << x << "" << y << "" << g << endl;
+
+int Oyuncu::puanAl()
+{
+	return puan;
 }
-int Test::f(int& s, int t) {
-	s *= 2;
-	t *= 3;
-	x += 2;
-	y + 3 = ;
-	cout << s << "" << endl;
-	return s + t;
+
+void Oyuncu::durumYazdir()
+{
+	cout << puan << endl;
+	cout << rumuz << endl;
 }
-int main() {
-	int d = 1; e = 2;
-	Test obj1(3), obj2(2, 4);
-	g = obj1.f(d, e);
-	g = obj2.f(e);
-	cout << d << e << endl;
-	return 0;
+
+int main()
+{
+	Oyuncu oyuncular[3];
+	Oyuncu oyuncu1("Hugo", 300);
+	Oyuncu oyuncu2("Mario", 460);
+	Oyuncu oyuncu3("Keloglan", 500);
+	oyuncular[0] = oyuncu1;
+	oyuncular[1] = oyuncu2;
+	oyuncular[2] = oyuncu3;
+	int max = oyuncular[0].puanAl();
+	for (int i = 0; i < 3; i++)
+	{
+		if (oyuncular[i].puanAl() > max)
+		{
+			max = oyuncular[i].puanAl();
+		}
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		if (oyuncular[i].puanAl() == max)
+		{
+			cout << "Kazanan..." << endl;
+			oyuncular[i].durumYazdir();
+			break;
+		}
+	}
+	system("pause");
 }
+
+//Program Çıktısı
+/*
+Kazanan...
+500
+Keloglan
+*/
