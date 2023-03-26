@@ -1,20 +1,86 @@
-﻿// CS9.1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+﻿#include <iostream>
+#include <string>
+#include <cstdlib>
 
-#include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+// Telsiz sınıfını tanımlayalım
+class Telsiz {
+public:
+    int ses;          // ses seviyesi değişkeni
+    float frekans;    // kanal frekansı değişkeni
+    string cumle;     // cihazın konuştuğu cümle değişkeni
+    string mesaj;     // cihazın dinlediği mesaj değişkeni
+    void ac();        // telsiz açma fonksiyonu
+    void sesAyarla(int);        // ses seviyesi ayarlama fonksiyonu
+    void kanalAyarla(float);    // kanal frekansı ayarlama fonksiyonu
+    void konus(string);         // cihazın konuşma fonksiyonu
+    void ledGoster();           // cihazın LED'ini yakma fonksiyonu
+    string dinle();             // cihazın dinleme fonksiyonu
+    void kapa();                // telsiz kapatma fonksiyonu
+};
+
+// telsiz açma fonksiyonu
+void Telsiz::ac() {
+    ses = 1;     // ses seviyesi varsayılan olarak 1 olarak ayarlanır
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+// telsiz kapatma fonksiyonu
+void Telsiz::kapa() {
+    ses = 0;     // ses seviyesi 0'a ayarlanarak telsiz kapatılır
+}
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+// LED yakma fonksiyonu
+void Telsiz::ledGoster() {
+    cout << "Kirmizi LED yaniyor..." << endl;   // kırmızı LED'in yandığını ekrana yazdırır
+}
+
+// ses seviyesi ayarlama fonksiyonu
+void Telsiz::sesAyarla(int sesA) {
+    ses = sesA;   // girilen değere göre ses seviyesi ayarlanır
+}
+
+// kanal frekansı ayarlama fonksiyonu
+void Telsiz::kanalAyarla(float f) {
+    frekans = f;   // girilen değere göre kanal frekansı ayarlanır
+}
+
+// cihazın konuşma fonksiyonu
+void Telsiz::konus(string k) {
+    cumle = k;    // girilen cümleyi kaydeder
+    cout << cumle << endl;   // cihazın konuştuğu cümleyi ekrana yazdırır
+}
+
+// cihazın dinleme fonksiyonu
+string Telsiz::dinle() {
+    mesaj = "112 Arandi";    // varsayılan mesaj
+    cout << mesaj << endl;   // mesajı ekrana yazdırır
+    return mesaj;            // mesajı döndürür
+}
+
+// ana fonksiyon
+int main() {
+    Telsiz telsiz;
+    telsiz.ac();
+    telsiz.sesAyarla(10);
+    telsiz.kanalAyarla(32.4);
+    telsiz.konus("Trafik kazasi var, yardim gonderin...");
+    telsiz.ledGoster();
+    string mesaj = telsiz.dinle();
+    cout << "Gelen mesaj: " << mesaj << endl;
+    telsiz.konus("Tamam...");
+    telsiz.kapa();
+    cout << "Ses seviyesi: " << telsiz.ses << endl;
+    system("Pause");
+}
+
+// Program Çıktısı
+/*
+Trafik kazasi var, yardim gonderin...
+Kirmizi LED yaniyor...
+112 Arandi
+Gelen mesaj: 112 Arandi
+Tamam...
+Ses seviyesi: 0
+*/
+
