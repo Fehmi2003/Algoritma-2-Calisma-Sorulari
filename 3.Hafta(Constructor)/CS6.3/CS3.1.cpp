@@ -37,3 +37,12 @@ int main()
 	system("pause");
 }
 
+//Program Çıktısı
+//
+/*
+Aydan Sener 1111111
+Fatma Girik 2222222
+Filiz Akin 3333333
+Hulya Kocyigit 4444444
+Turkan Soray 5555555
+*/
