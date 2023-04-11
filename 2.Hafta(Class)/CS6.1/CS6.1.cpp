@@ -77,4 +77,5 @@ Yerlesim Biriminin ismini giriniz: Turkiye
 	Olum sayisini giriniz: 365190
 		Turkiye --- Dogum Orani:0.0165806
 		Turkiye --- Olum Orani:0.00488717
+		...
 */
