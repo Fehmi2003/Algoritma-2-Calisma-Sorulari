@@ -35,5 +35,5 @@ gosterge = &dizi[2]; - gösterici, dizinin üçüncü elemanının adresini gös
 gosterge = dizi; - gösterici, dizinin ilk elemanının adresini gösterir.
 *(gosterge + 4) = 30; - göstericinin işaret ettiği adresten dördüncü sonraki elemanın değeri 30 olarak atanır.
 Döngü, dizinin her elemanını ekrana yazdırır.
-return 0; - programın normal olarak sonlandığını belirtir.
+return 0; - programın normal olarak sonlandığını belirtir...
 */
